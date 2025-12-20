@@ -6,7 +6,7 @@ Build production-ready AI agents with the [Strands Agents SDK](https://github.co
 
 Strands Agents create AI agents with minimal code using built-in tools from the community package. No need to write custom tool implementations—focus on your use case while the framework handles the complexity.
 
-## Tutorial Contents - 7 Hands-On Notebooks + Production Deploy
+## Tutorial Contents - 8 Hands-On Notebooks
 
 | # | Notebook | Description |
 |---|----------|-------------|
@@ -17,6 +17,7 @@ Strands Agents create AI agents with minimal code using built-in tools from the 
 | **05** ⭐ | [S3 Vector Memory for Persistent Context](notebooks/05-s3-vector-memory.ipynb) | Build semantic memory with [Amazon S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html). Create agents that remember across all sessions with production-ready infrastructure. |
 | **06** 🌍 | [Travel Assistant with Cross-Session Memory](notebooks/06-travel-assistant-demo.ipynb) | Real-world demonstration of cross-session memory with a personalized AI travel assistant. Features multimodal analysis (text, images, PDFs) and progressive personalization. |
 | **07** 🎨 | [Travel Content Generator with Built-in Tools](notebooks/07-travel-content-generator.ipynb) | Generate complete travel content packages (images, videos, itineraries) for any destination using built-in tools from [`strands-agents-tools`](https://pypi.org/project/strands-agents-tools/). Fully automated with no manual confirmations. |
+| **08** 🎬 | [Agentic Video Analysis](notebooks/08-agentic-video-analysis.ipynb) | Build specialized video analysis agents using TwelveLabs API or AWS Bedrock Pegasus. Upload videos, generate insights, and query video content with natural language. |
 | **Bonus** 🚀 | [Deploy to Production with AgentCore](deploy-to-production/) | Deploy your multimodal travel agent to production using [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html). Includes persistent memory with [Amazon Bedrock AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-get-started.html), serverless deployment, and comprehensive testing. |
 
 ### Recommended Learning Path
