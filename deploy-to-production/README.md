@@ -4,9 +4,23 @@
 
 Deploy the multimodal travel assistant agent to production using [Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html). This agent features persistent memory, multimodal content analysis (images, videos, documents), and personalized travel recommendations.
 
+### AgentCore Services
+
+- **[AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime.html)** ⭐ - Serverless execution with auto-scaling and session management
+- **[AgentCore Identity](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity.html)** - Secure credential management for API keys and tokens  
+- **[AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html)** ⭐ - State persistence and conversation history
+- **[AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)** - Secure code execution sandbox
+- **[AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html)** - Cloud browser automation
+- **[AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html)** - API management and tool discovery
+- **[AgentCore Observability](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html)** - Monitoring, tracing, and debugging
+- **[AgentCore Policy](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html)** - Deterministic control and security boundaries for agent-tool interactions
+- **[AgentCore Evaluations](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html)** - Automated assessment and performance measurement for agents
+
 ## Production Features
 
 - **Persistent Memory**: Cross-session memory using Bedrock AgentCore Memory
+  - **Short-term Memory**: Captures turn-by-turn interactions within a single session
+  - **Long-term Memory**: Automatically extracts and stores key insights across multiple sessions
 - **Multimodal Analysis**: Process images, videos, and documents with built-in tools
 - **Travel Expertise**: Personalized recommendations based on user preferences
 - **Production Ready**: Secure, scalable deployment on AWS infrastructure
@@ -17,6 +31,7 @@ Deploy the multimodal travel assistant agent to production using [Amazon Bedrock
 - **Python 3.10+** installed
 - **AWS CLI configured** (`aws configure`)
 - **Model Access**: Enable `us.anthropic.claude-3-5-sonnet-20241022-v2:0` in Amazon Bedrock console
+- Basic understanding of [AI agents](https://aws.amazon.com/what-is/ai-agents/) and [AWS services](https://aws.amazon.com/what-is-aws/)
 
 ## Installation
 
@@ -52,6 +67,20 @@ Or specify a different region:
 
 ```bash
 agentcore configure -e multimodal_agent.py -r us-east-1
+```
+
+### Custom Header Configuration
+
+Select YES in *Request Header Allow list*, and in *Request Header Allow* paste `X-Amzn-Bedrock-AgentCore-Runtime-Custom-Actor-Id`
+
+This header allows passing a user identifier from your application to the agent. The agent extracts it from `context.request_headers` (normalized to lowercase: `x-amzn-bedrock-agentcore-runtime-custom-actor-id`) and uses it to namespace memory per user.
+
+At the end `.bedrock_agentcore.yaml`, must look like this: 
+
+```yaml
+request_header_configuration:
+  requestHeaderAllowlist:
+  - X-Amzn-Bedrock-AgentCore-Runtime-Custom-Actor-Id
 ```
 
 This creates a `.bedrock_agentcore.yaml` configuration file.
@@ -114,6 +143,8 @@ This script tests:
 - Cross-session memory recall
 - User-specific memory isolation
 
+**Important:** Long-term memory extraction is an [asynchronous background process](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-saving-and-retrieving-insights.html#long-term-step-2-retrieve-extracted-insights) that can take a minute or more. The test waits 60 seconds between invocations for reliable memory retrieval.
+
 **Generate test content (optional):**
 
 If you need sample travel content for testing, use the travel content generator from the parent directory:
@@ -161,8 +192,10 @@ The notebook demonstrates:
 
 **If you want to start using the agent by creating your own code, keep the following points in mind**:
 - Session IDs must be 33+ characters for proper session management
+- Use custom headers for user identification: `X-Amzn-Bedrock-AgentCore-Runtime-Custom-Actor-Id`
 - Same user ID enables cross-session memory
 - Different session IDs simulate different conversations
+- Headers are normalized to lowercase in the agent code
 
 
 ## Locate AWS Resources After Deployment
