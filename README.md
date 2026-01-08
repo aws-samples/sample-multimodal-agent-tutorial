@@ -10,7 +10,7 @@ Strands Agents create AI agents with minimal code using built-in tools from the 
 
 | # | Notebook | Description |
 |---|----------|-------------|
-| **01** | [Hello World - First AI Agent](notebooks/01-hello-world-strands-agents.ipynb) | Create your first AI agent with [Amazon Bedrock](https://aws.amazon.com/bedrock/) in under 10 lines of code. Learn agent basics, system prompts, and execution loops. |
+| **01** | [Hello World - First AI Agent](notebooks/01-hello-world-strands-agents.ipynb) | Create your first AI agent with [Amazon Bedrock](https://aws.amazon.com/es/bedrock/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el) in under 10 lines of code. Learn agent basics, system prompts, and execution loops. |
 | **02** | [Custom Tools for Multi-Modal Processing](notebooks/02-custom-tools.ipynb) | Extend agents with custom tools using the `@tool` decorator. Process multi-modal content including images, videos, and documents. |
 | **03** | [MCP Integration for Tool Sharing](notebooks/03-mcp-integration.ipynb) | Share tools across applications with [Model Context Protocol (MCP)](https://modelcontextprotocol.io/). Convert tools to MCP servers and deploy for production. |
 | **04** | [State Management and Sessions](notebooks/04-state-and-sessions.ipynb) | Implement session management with `FileSessionManager`. Maintain conversation context and handle multiple concurrent sessions. |
@@ -30,7 +30,7 @@ Strands Agents create AI agents with minimal code using built-in tools from the 
 ## Quick Start
 
 ### Prerequisites
-- AWS Account with [Amazon Bedrock](https://aws.amazon.com/bedrock/) model access enabled
+- AWS Account with [Amazon Bedrock](https://aws.amazon.com/es/bedrock/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el) model access enabled
 - Python 3.9+ and Jupyter Notebook
 - AWS CLI configured (`aws configure`)
 
@@ -172,7 +172,7 @@ python test_video.py path/to/video.mp4
 - Run cells sequentially to maintain state
 - Experiment with examples to deepen understanding
 - Explore the [strands-agents-tools package](https://github.com/strands-agents/tools) for more pre-built capabilities
-- Monitor costs with [AWS Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/)
+- Monitor costs with [AWS Cost Explorer](https://aws.amazon.com/es/aws-cost-management/aws-cost-explorer/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el)
 
 ## Common Issues & Solutions
 
@@ -195,7 +195,7 @@ python test_video.py path/to/video.mp4
 • [Amazon Bedrock AgentCore](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html)  
 • [S3 Vectors](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-vectors.html)  
 • [MCP Specification](https://modelcontextprotocol.io/)  
-• [Amazon Nova](https://aws.amazon.com/bedrock/nova/)
+• [Amazon Nova](https://aws.amazon.com/es/bedrock/nova/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el)
 
 ---
 

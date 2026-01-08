@@ -31,7 +31,7 @@ Deploy the multimodal travel assistant agent to production using [Amazon Bedrock
 - **Python 3.10+** installed
 - **AWS CLI configured** (`aws configure`)
 - **Model Access**: Enable `us.anthropic.claude-3-5-sonnet-20241022-v2:0` in Amazon Bedrock console
-- Basic understanding of [AI agents](https://aws.amazon.com/what-is/ai-agents/) and [AWS services](https://aws.amazon.com/what-is-aws/)
+- Basic understanding of [AI agents](https://aws.amazon.com/es/what-is/ai-agents/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el) and [AWS services](https://aws.amazon.com/es/what-is-aws/?trk=87c4c426-cddf-4799-a299-273337552ad8&sc_channel=el)
 
 ## Installation
 
