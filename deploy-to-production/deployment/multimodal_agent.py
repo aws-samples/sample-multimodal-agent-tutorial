@@ -113,7 +113,7 @@ def invoke(payload, context=None):
     session_id = 'whatsapp-session'
     
     if context and hasattr(context, 'request_headers') and context.request_headers:
-        actor_id = context.request_headers.get('X-Amzn-Bedrock-AgentCore-Runtime-Custom-Actor-Id', 'whatsapp-user')
+        actor_id = context.request_headers.get('x-amzn-bedrock-agentcore-runtime-custom-actor-id')
         session_id = context.session_id or 'whatsapp-session'
     
     # Get or create agent with proper session management
